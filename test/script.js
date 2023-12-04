@@ -9,11 +9,11 @@ const urlParams = new URLSearchParams(queryString);
 const dayRaw = urlParams.get("day");
 const day = dayRaw === null ? 18 : dayRaw;
 
-const date = day % 10 == 1 ?
+const date = day % 10 == 1 && day % 100 != 11 ?
 		day + "st" : 
-		(day % 10 == 2 ?
+		(day % 10 == 2 && day % 100 != 12 ?
 			day + "nd" :
-			(day % 10 == 3 ?
+			(day % 10 == 3 && day % 100 != 13 ?
 				day + "rd" :
 				day + "th"));
 
