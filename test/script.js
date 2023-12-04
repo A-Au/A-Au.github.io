@@ -9,7 +9,13 @@ const urlParams = new URLSearchParams(queryString);
 const dayRaw = urlParams.get("day");
 const day = dayRaw === null ? 18 : dayRaw;
 
-const date = day == 1 ? "1st" : (day == 2 ? "2nd" : (day == 3 ? "3rd" : day + "th"));
+const date = day % 10 == 1 ?
+		day + "st" : 
+		(day % 10 == 2 ?
+			day + "nd" :
+			(day % 10 == 3 ?
+				day + "rd" :
+				day + "th"));
 
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Yay, see you on the " + date + "!";
